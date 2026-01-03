@@ -3,4 +3,4 @@
 # Timers Addon
 Allows players to create timers.
 
-![Timers Manager](https://i.imgur.com/JkCYkmK.png)
+![Timers Addon](https://i.imgur.com/JkCYkmK.png)

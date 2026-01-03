@@ -3,4 +3,4 @@
 # Таймеры
 Позволяет игрокам создавать таймеры.
 
-![Менеджер таймеров](https://i.imgur.com/JkCYkmK.png)
+![Таймеры](https://i.imgur.com/JkCYkmK.png)
