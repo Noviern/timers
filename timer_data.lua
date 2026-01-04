@@ -1,1 +1,1 @@
-return {[3]={["duration"]=60,["name"]="One minute"},[1]={["duration"]=86400,["startTime"]=1767455902,["name"]="One day",["pauseTime"]=1767455902},[2]={["name"]="One hour",["duration"]=3600},[4]={["duration"]=1,["name"]="One second"}}
+return {[3]={["duration"]=60,["name"]="One minute"},[1]={["duration"]=86400,["name"]="One day"},[2]={["duration"]=3600,["name"]="One hour"},[4]={["duration"]=1,["name"]="One second"}}

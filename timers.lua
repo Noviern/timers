@@ -33,6 +33,18 @@ local function CreateFinishedTimerWindow(timer)
     window:Show(false)
   end)
 
+  local timeCheck = 0
+  window:SetHandler("OnUpdate", function (self, frameTime)
+    timeCheck = timeCheck + frameTime
+
+    if timeCheck < 1000 then
+      return
+    end
+
+    timeCheck = timeCheck % 1000
+    X2Sound:PlayUISound("event_commercial_mail_alarm")
+  end)
+
   return window
 end
 
@@ -52,7 +64,6 @@ function UpdateTimers()
         else
           local finishedTimerWindow = CreateFinishedTimerWindow(timer)
           finishedTimerWindow:Show(true)
-          X2Sound:PlayUISound("event_commercial_mail_alarm")
         end
 
         if timersWindow ~= nil and timersWindow:IsVisible(true) then
@@ -269,11 +280,12 @@ local function ToggleTimersWindow(show)
   end
 end
 
-local timerNotifier = UIParent:CreateWidget("emptywidget", "timerNotifier", "UIParent")
-timerNotifier:Show(true)
+function CreateTimerNotificationWindow()
+  local timerNotifier = UIParent:CreateWidget("emptywidget", "timerNotifier", "UIParent")
+  timerNotifier:Show(true)
 
-local timeCheck = 0
-timerNotifier:SetHandler("OnUpdate", function (self, frameTime)
+  local timeCheck = 0
+  timerNotifier:SetHandler("OnUpdate", function (self, frameTime)
   timeCheck = timeCheck + frameTime
 
   if timeCheck < 1000 then
@@ -283,7 +295,10 @@ timerNotifier:SetHandler("OnUpdate", function (self, frameTime)
   timeCheck = timeCheck % 1000
 
   UpdateTimers()
-end)
+  end)
+end
+
+CreateTimerNotificationWindow()
 
 ADDON:RegisterContentTriggerFunc(UIC_TIMERS, ToggleTimersWindow)
 ADDON:AddEscMenuButton(4, UIC_TIMERS, "optimizer", locale.addon.name)
