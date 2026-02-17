@@ -246,31 +246,7 @@ function SetViewOfTimers(timers)
   local upButton = sliderFrame:CreateChildWidget("button", "upButton", 0, true)
   upButton:AddAnchor("TOPRIGHT", sliderFrame, 0, 0)
   upButton:SetExtent(20, 12)
-  -- upButton:SetStyle("slider_scroll_button_up") -- This doesn't exist yet.
-
-  local upButtonNormalBackground = assert(upButton:CreateImageDrawable(TEXTURE_PATH.SCROLL, "background"))
-  upButtonNormalBackground:SetTextureInfo("scroll_button_up", "normal")
-  upButtonNormalBackground:AddAnchor("TOPLEFT", upButton, 0, 0)
-  upButtonNormalBackground:AddAnchor("BOTTOMRIGHT", upButton, 0, 0)
-  upButton:SetNormalBackground(upButtonNormalBackground)
-
-  local upButtonHighlightBackground = assert(upButton:CreateImageDrawable(TEXTURE_PATH.SCROLL, "background"))
-  upButtonHighlightBackground:SetTextureInfo("scroll_button_up", "over")
-  upButtonHighlightBackground:AddAnchor("TOPLEFT", upButton, 0, 0)
-  upButtonHighlightBackground:AddAnchor("BOTTOMRIGHT", upButton, 0, 0)
-  upButton:SetHighlightBackground(upButtonHighlightBackground)
-
-  local upButtonPushedBackground = assert(upButton:CreateImageDrawable(TEXTURE_PATH.SCROLL, "background"))
-  upButtonPushedBackground:SetTextureInfo("scroll_button_up", "click")
-  upButtonPushedBackground:AddAnchor("TOPLEFT", upButton, 0, 0)
-  upButtonPushedBackground:AddAnchor("BOTTOMRIGHT", upButton, 0, 0)
-  upButton:SetPushedBackground(upButtonPushedBackground)
-
-  local upButtonDisabledBackground = assert(upButton:CreateImageDrawable(TEXTURE_PATH.SCROLL, "background"))
-  upButtonDisabledBackground:SetTextureInfo("scroll_button_up", "disable")
-  upButtonDisabledBackground:AddAnchor("TOPLEFT", upButton, 0, 0)
-  upButtonDisabledBackground:AddAnchor("BOTTOMRIGHT", upButton, 0, 0)
-  upButton:SetDisabledBackground(upButtonDisabledBackground)
+  upButton:SetStyle("slider_scroll_button_up")
 
   -- Create a slider for the slider frame.
   local slider = sliderFrame:CreateChildWidget("slider", "slider", 0, true)
@@ -307,31 +283,7 @@ function SetViewOfTimers(timers)
   local downButton = sliderFrame:CreateChildWidget("button", "downButton", 0, true)
   downButton:AddAnchor("BOTTOMRIGHT", sliderFrame, 0, 0)
   downButton:SetExtent(20, 12)
-  -- upButton:SetStyle("slider_scroll_button_down") -- This doesn't exist yet.
-
-  local downButtonNormalBackground = assert(downButton:CreateImageDrawable(TEXTURE_PATH.SCROLL, "background"))
-  downButtonNormalBackground:SetTextureInfo("scroll_button_down", "normal")
-  downButtonNormalBackground:AddAnchor("TOPLEFT", downButton, 0, 0)
-  downButtonNormalBackground:AddAnchor("BOTTOMRIGHT", downButton, 0, 0)
-  downButton:SetNormalBackground(downButtonNormalBackground)
-
-  local downButtonHighlightBackground = assert(downButton:CreateImageDrawable(TEXTURE_PATH.SCROLL, "background"))
-  downButtonHighlightBackground:SetTextureInfo("scroll_button_down", "over")
-  downButtonHighlightBackground:AddAnchor("TOPLEFT", downButton, 0, 0)
-  downButtonHighlightBackground:AddAnchor("BOTTOMRIGHT", downButton, 0, 0)
-  downButton:SetHighlightBackground(downButtonHighlightBackground)
-
-  local downButtonPushedBackground = assert(downButton:CreateImageDrawable(TEXTURE_PATH.SCROLL, "background"))
-  downButtonPushedBackground:SetTextureInfo("scroll_button_down", "click")
-  downButtonPushedBackground:AddAnchor("TOPLEFT", downButton, 0, 0)
-  downButtonPushedBackground:AddAnchor("BOTTOMRIGHT", downButton, 0, 0)
-  downButton:SetPushedBackground(downButtonPushedBackground)
-
-  local downButtonDisabledBackground = assert(downButton:CreateImageDrawable(TEXTURE_PATH.SCROLL, "background"))
-  downButtonDisabledBackground:SetTextureInfo("scroll_button_down", "disable")
-  downButtonDisabledBackground:AddAnchor("TOPLEFT", downButton, 0, 0)
-  downButtonDisabledBackground:AddAnchor("BOTTOMRIGHT", downButton, 0, 0)
-  downButton:SetDisabledBackground(downButtonDisabledBackground)
+  downButton:SetStyle("slider_scroll_button_down")
 
   slider:AddAnchor("BOTTOMRIGHT", downButton, "TOPRIGHT", 0, 0)
 
