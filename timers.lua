@@ -140,11 +140,11 @@ local function CreateTimersWindow()
   local titleBar         = window.titleBar ---@type Window
   local closeButton      = titleBar.closeButton ---@type Button
   local createTimerFrame = window.createTimerFrame ---@type EmptyWidget
-  local nameEditbox      = createTimerFrame.nameEditbox ---@type X2EditBox
-  local dayEditbox       = createTimerFrame.dayEditbox ---@type X2EditBox
-  local hourEditbox      = createTimerFrame.hourEditbox ---@type X2EditBox
-  local minuteEditbox    = createTimerFrame.minuteEditbox ---@type X2EditBox
-  local secondEditbox    = createTimerFrame.secondEditbox ---@type X2EditBox
+  local nameEditbox      = createTimerFrame.nameEditbox ---@type X2Editbox
+  local dayEditbox       = createTimerFrame.dayEditbox ---@type X2Editbox
+  local hourEditbox      = createTimerFrame.hourEditbox ---@type X2Editbox
+  local minuteEditbox    = createTimerFrame.minuteEditbox ---@type X2Editbox
+  local secondEditbox    = createTimerFrame.secondEditbox ---@type X2Editbox
   local createButton     = createTimerFrame.createButton ---@type Button
   local contentFrame     = window.contentFrame ---@type EmptyWidget
   local scrollFrame      = contentFrame.scrollFrame ---@type EmptyWidget
