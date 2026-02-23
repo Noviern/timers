@@ -98,7 +98,6 @@ function SetViewOfTimers(timers)
   nameEditbox:SetGuideTextInset({ inset[1], inset[2], inset[3], inset[4] })
   nameEditbox:SetGuideText(locale.addon.guide)
   nameEditbox:SetCursorColorByColorKey("editbox_cursor_default")
-  nameEditbox:SetMaxTextLength(25)
 
   local nameEditboxBackground = nameEditbox:CreateDrawable(TEXTURE_PATH.DEFAULT, "editbox_df", "background")
   nameEditboxBackground:AddAnchor("TOPLEFT", nameEditbox, 0, 0)
@@ -291,9 +290,12 @@ function SetViewOfTimers(timers)
   local timersListCtrl = scrollFrame:CreateChildWidget("listctrl", "timersListCtrl", 0, true)
   timersListCtrl:AddAnchor("TOPLEFT", 0, 0)
   timersListCtrl:SetWidth(scrollFrame:GetWidth())
+
+  local maxTextWidth = dayEditbox.style:GetTextWidth(string.rep("W", 25)) / UIParent:GetUIScale()
+
   timersListCtrl:InsertColumn(WINDOW.ITEM_DIMENSION, LCCIT_BUTTON)
-  timersListCtrl:InsertColumn((timersListCtrl:GetWidth() - WINDOW.ITEM_DIMENSION * 3) / 2, LCCIT_TEXTBOX)
-  timersListCtrl:InsertColumn((timersListCtrl:GetWidth() - WINDOW.ITEM_DIMENSION * 3) / 2, LCCIT_TEXTBOX)
+  timersListCtrl:InsertColumn(maxTextWidth, LCCIT_TEXTBOX)
+  timersListCtrl:InsertColumn((timersListCtrl:GetWidth() - WINDOW.ITEM_DIMENSION * 3 - maxTextWidth), LCCIT_TEXTBOX)
   timersListCtrl:InsertColumn(WINDOW.ITEM_DIMENSION, LCCIT_BUTTON)
   timersListCtrl:InsertColumn(WINDOW.ITEM_DIMENSION, LCCIT_BUTTON)
 
@@ -342,7 +344,6 @@ function SetViewOfTimers(timers)
 
       timerNameTextbox.style:SetColorByKey("default")
       timerNameTextbox.style:SetAlign(ALIGN_LEFT)
-      timerNameTextbox.style:SetFontSize(FONT_SIZE.LARGE)
       timerNameTextbox.style:SetEllipsis(true)
       timerNameTextbox:SetAutoWordwrap(false)
       timerNameTextbox:SetText(timer.name)
@@ -353,7 +354,6 @@ function SetViewOfTimers(timers)
 
       timerDurationTextbox.style:SetColorByKey("default")
       timerDurationTextbox.style:SetAlign(ALIGN_LEFT)
-      timerDurationTextbox.style:SetFontSize(FONT_SIZE.LARGE)
       timerDurationTextbox.style:SetEllipsis(true)
       timerDurationTextbox:SetAutoWordwrap(false)
 
