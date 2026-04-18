@@ -1,0 +1,31 @@
+name: ZIP Release
+
+on:
+  push:
+    branches: ["master"]
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Generate timestamp tag
+        run: |
+          echo "TAG=$(date +'%Y-%m-%d-%H-%M-%S')" >> $GITHUB_ENV
+
+      - name: Create ZIP
+        run: zip -r "${{ github.event.repository.name }}.zip" . -x ".git/*"
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.TAG }} 
+          name: ${{ env.TAG }}
+          make_latest: true
+          files: ${{ github.event.repository.name }}.zip
