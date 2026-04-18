@@ -1,13 +1,17 @@
 local UIC_TIMERS = 12345677
 local timersWindow
-local timers = table.load(filePath)
+local timers     = table.load(filePath)
+local DAY        = 86400
+local HOUR       = 3600
+local MINUTE     = 60
+local SECOND     = 1
 
 ---Creates a finished timer window.
 ---@return Window
 local function CreateFinishedTimerWindow(timer)
-  local window           = SetViewOfFinishedTimer(timer)
-  local titleBar         = window.titleBar ---@type Window
-  local closeButton      = titleBar.closeButton ---@type Button
+  local window      = SetViewOfFinishedTimer(timer)
+  local titleBar    = window.titleBar ---@type Window
+  local closeButton = titleBar.closeButton ---@type Button
 
   window:SetSounds("bag")
   window:SetCloseOnEscape(true)
@@ -286,15 +290,15 @@ function CreateTimerNotificationWindow()
 
   local timeCheck = 0
   timerNotifier:SetHandler("OnUpdate", function (self, frameTime)
-  timeCheck = timeCheck + frameTime
+    timeCheck = timeCheck + frameTime
 
-  if timeCheck < 1000 then
-    return
-  end
+    if timeCheck < 1000 then
+      return
+    end
 
-  timeCheck = timeCheck % 1000
+    timeCheck = timeCheck % 1000
 
-  UpdateTimers()
+    UpdateTimers()
   end)
 end
 

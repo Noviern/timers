@@ -26,13 +26,7 @@ WINDOW      = {
 
 local inset = { 8, 8, 8, 8 }
 
----@TODO: filePath could fail if the user installed ArcheRage on another drive. Need to find a way to get the ArcheRage Documents folder.
-filePath    = "C:/ArcheRage/Documents/Addon/" .. ADDON:GetName() .. "/timer_data.lua"
-
-DAY         = 86400
-HOUR        = 3600
-MINUTE      = 60
-SECOND      = 1
+filePath    = "../Documents/Addon/" .. ADDON:GetName() .. "/timer_data.lua"
 
 ---@class Timer
 ---@field name string
@@ -397,7 +391,6 @@ function SetViewOfTimers(timers)
       refreshDisabledBackground:AddAnchor("BOTTOMRIGHT", refreshButton, 0, 0)
       refreshButton:SetDisabledBackground(refreshDisabledBackground)
 
-      ---@TODO: move this to the timers.lua
       refreshButton:SetHandler("OnClick", function ()
         timer.startTime = nil
         timer.pauseTime = nil
@@ -414,7 +407,6 @@ function SetViewOfTimers(timers)
       deleteButton:SetStyle("btn_close_default")
       deleteButton:SetExtent(20, 20)
 
-      ---@TODO: move this to the timers.lua
       deleteButton:SetHandler("OnClick", function ()
         table.remove(timers, row)
 
@@ -429,14 +421,7 @@ function SetViewOfTimers(timers)
     end
 
     local min = 0
-    -- @TODO:
-    -- When the 11 timer was added and then removed I was getting a floating
-    -- point bug.
-    -- timersListCtrl:GetHeight() = 330
-    -- scrollFrame:GetHeight() = 300
-    -- 330 - 300 = 30.0001
-    -- This only happens after the first time this used for some odd reason.
-    local max = math.max(min, math.floor(timersListCtrl:GetHeight() - scrollFrame:GetHeight()))
+    local max = math.max(min, math.floor(timersListCtrl:GetHeight() - scrollFrame:GetHeight() + 0.5))
 
     slider:SetMinMaxValues(min, max)
 
