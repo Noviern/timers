@@ -3,4 +3,5 @@
 # Minuteries
 Permet aux joueurs de créer des minuteries.
 
+![Minuteries](https://i.imgur.com/GngvFY5.png)
 ![Minuteries](https://i.imgur.com/JkCYkmK.png)

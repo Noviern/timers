@@ -3,4 +3,5 @@
 # 计时器插件
 允许玩家创建计时器.
 
+![计时器插件](https://i.imgur.com/GngvFY5.png)
 ![计时器插件](https://i.imgur.com/JkCYkmK.png)
