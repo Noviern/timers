@@ -285,11 +285,11 @@ function SetViewOfTimers(timers)
   timersListCtrl:AddAnchor("TOPLEFT", 0, 0)
   timersListCtrl:SetWidth(scrollFrame:GetWidth())
 
-  local maxTextWidth = dayEditbox.style:GetTextWidth(string.rep("W", 25)) / UIParent:GetUIScale()
+  local timerNameTextboxWidth = 290
 
   timersListCtrl:InsertColumn(WINDOW.ITEM_DIMENSION, LCCIT_BUTTON)
-  timersListCtrl:InsertColumn(maxTextWidth, LCCIT_TEXTBOX)
-  timersListCtrl:InsertColumn((timersListCtrl:GetWidth() - WINDOW.ITEM_DIMENSION * 3 - maxTextWidth), LCCIT_TEXTBOX)
+  timersListCtrl:InsertColumn(timerNameTextboxWidth, LCCIT_TEXTBOX)
+  timersListCtrl:InsertColumn(timersListCtrl:GetWidth() - WINDOW.ITEM_DIMENSION * 3 - timerNameTextboxWidth, LCCIT_TEXTBOX)
   timersListCtrl:InsertColumn(WINDOW.ITEM_DIMENSION, LCCIT_BUTTON)
   timersListCtrl:InsertColumn(WINDOW.ITEM_DIMENSION, LCCIT_BUTTON)
 
